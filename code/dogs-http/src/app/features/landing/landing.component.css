@@ -1,3 +1,19 @@
-.landing {
+.main-container {
+    flex-direction: column;
+    justify-content: center;
+}
 
+Image {
+    width: 55%;
+    margin-bottom: 4%;
+}
+
+Label {
+    text-align: center;
+    font-size: 15;
+    margin-bottom: 8%;
+}
+
+Button {
+    margin: 0% 30%;
 }

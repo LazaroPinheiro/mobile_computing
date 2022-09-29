@@ -1,13 +1,16 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core'
 import { AppRoutingModule } from '@app/app-routing.module'
 import { AppComponent } from '@app/app.component'
+import { InputFieldModule } from '@app/core/components/input-field/input-field.module'
+import { ImageViewerComponent } from '@app/features/image-viewer/image-viewer.component'
+import { LandingComponent } from '@app/features/landing/landing.component'
 import { NativeScriptModule } from '@nativescript/angular'
-import { LandingComponent } from './features/landing/landing.component'
+
 
 @NgModule({
   bootstrap: [AppComponent],
-  imports: [NativeScriptModule, AppRoutingModule],
-  declarations: [AppComponent, LandingComponent],
+  imports: [NativeScriptModule, AppRoutingModule, InputFieldModule],
+  declarations: [AppComponent, LandingComponent, ImageViewerComponent],
   providers: [],
   schemas: [NO_ERRORS_SCHEMA],
 })
