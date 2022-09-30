@@ -27,6 +27,7 @@
 			android:configChanges="keyboard|keyboardHidden|orientation|screenSize|smallestScreenSize|screenLayout|locale|uiMode"
 			android:theme="@style/LaunchScreenTheme"
 			android:hardwareAccelerated="true"
+          	android:screenOrientation="portrait"
       		android:launchMode="singleTask"
 			android:exported="true">
 

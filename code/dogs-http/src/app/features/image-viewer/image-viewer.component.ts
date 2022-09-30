@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import MyHttpStatusCode from '@app/helpers/enumerations/MyHttpStatusCode';
 import { RouterExtensions } from '@nativescript/angular';
 
 @Component({
@@ -9,11 +10,26 @@ import { RouterExtensions } from '@nativescript/angular';
 })
 
 export class ImageViewerComponent {
+	statusCode: number;
+	enteredStatusCode: number;
+	error: string = " ";
+
 	constructor(private _routerExtensions: RouterExtensions) { }
 
 	public goBack(): void {
 		this._routerExtensions.back();
 	}
 
-	p
+	public newStatusCodeEntered(statusCode: number): void {
+		if(this.error !== " ") this.error = " ";
+		this.enteredStatusCode = statusCode;
+	}
+
+	public fetchStatusCodeImage(): void {
+		if(!(this.enteredStatusCode in MyHttpStatusCode)) {
+			this.error = "Invalid HTTP status code entered.";
+		} else {
+			this.statusCode = this.enteredStatusCode;
+		}
+	}
 }

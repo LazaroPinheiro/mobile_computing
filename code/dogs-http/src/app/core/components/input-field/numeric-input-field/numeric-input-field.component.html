@@ -1,7 +1,11 @@
-<TextField
-    [hint]="hint"
-    [maxlength]="maxLength"
-    keyboardType="number"
-    autocorrect="false"
-    class="text-input-field"
-></TextField>
+<FlexboxLayout class="text-input-container">
+    <TextField
+        [hint]="hint"
+        [maxlength]="maxLength"
+        keyboardType="number"
+        autocorrect="false"
+        (textChange)="onFieldTextChange($event)"
+        class="text-input-field"
+    ></TextField>
+</FlexboxLayout>
+<Label [text]="error" class="-error-preventing"></Label>

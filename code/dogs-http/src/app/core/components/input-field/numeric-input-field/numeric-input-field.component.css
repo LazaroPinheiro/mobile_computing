@@ -1,6 +1,12 @@
-.text-input-field {
+.text-input-container {
     border-width: 1;
     border-radius: 10;
-    font-size: 16;
+    border-color: #C7C7C7;
+}
+
+.text-input-field {
     width: 90%;
+    placeholder-color: grey;
+    font-size: 16;
+    border-bottom-width: 0;
 }

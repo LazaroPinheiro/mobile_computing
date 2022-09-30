@@ -1,21 +1,6 @@
 @import '@nativescript/theme/css/core.css';
 @import '@nativescript/theme/css/default.css';
 
-.far {
-  font-family: Font Awesome 5 Free, fa-regular-400;
-  font-weight: 400; 
-}
-
-.fab {
-  font-family: Font Awesome 5 Brands, fa-brands-400;
-  font-weight: 400; 
-}
-
-.fas {
-  font-family: Font Awesome 5 Free, fa-solid-900;
-  font-weight: 900; 
-}
-
 Button.-primary {
   font-size: 18;
   border-radius: 50;
@@ -24,5 +9,28 @@ Button.-primary {
 
 Button.-primary:active {
   background-color: rgb(244, 189, 153);
+  color: gray;
   transition: 0.7s;
+}
+
+Label.-error-preventing {
+  color:red;
+}
+
+.far {
+  font-family: Font Awesome 5 Free, fa-regular-400;
+  font-weight: 400; 
+  font-size: 25;
+}
+
+.fab {
+  font-family: Font Awesome 5 Brands, fa-brands-400;
+  font-weight: 400; 
+  font-size: 25;
+}
+
+.fas {
+  font-family: Font Awesome 5 Free, fa-solid-900;
+  font-weight: 900; 
+  font-size: 25;
 }

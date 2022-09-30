@@ -1,8 +1,23 @@
 <ActionBar flat="true" title="Image Viewer">
     <NavigationButton android.systemIcon="ic_menu_back" (tap)="goBack()"></NavigationButton>
 </ActionBar>
-<FlexboxLayout class="main-container">
-    <Label text="Please enter an HTTP status code."></Label>
-    <numeric-input-field maxLength="3"></numeric-input-field>
-    <Button text="Search it" class="-primary"></Button>
-</FlexboxLayout>
+<StackLayout row="0" class="main-container">
+    <Label 
+        textWrap="true" 
+        text="This screen is intended to find out through images how http status codes are represented in canine language."
+    ></Label>
+    <Label class="input-field-description" text="HTTP Status Code"></Label>
+    <numeric-input-field 
+        hint="Enter a valid status code"
+        maxLength="3"
+        [error]="error"
+        (textChange)="newStatusCodeEntered($event)"
+    ></numeric-input-field>
+    <Button 
+        [isEnabled]="enteredStatusCode > 99 && enteredStatusCode < 1000 && enteredStatusCode != statusCode"
+        text="Search it"
+        (tap)="fetchStatusCodeImage()" 
+        class="-primary"
+    ></Button>
+    <Image *ngIf="statusCode" src="https://http.dog/{{statusCode}}.jpg"></Image>
+</StackLayout>

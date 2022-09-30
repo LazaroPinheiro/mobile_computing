@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
 	moduleId: module.id,
@@ -10,6 +10,11 @@ import { Component, Input } from '@angular/core';
 export class NumericInputFieldComponent {
     @Input() hint = "";
     @Input() maxLength: number = Number.POSITIVE_INFINITY;
+	@Input() error: string = "";
 	
-	constructor() { }
+	@Output() textChange = new EventEmitter<number>();
+
+	onFieldTextChange(evt: any) {
+        this.textChange.emit(evt.object.text);
+    }
 }
