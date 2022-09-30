@@ -4,6 +4,7 @@
         [maxlength]="maxLength"
         keyboardType="number"
         autocorrect="false"
+        (loaded)="onFieldLoaded($event)"
         (textChange)="onFieldTextChange($event)"
         class="text-input-field"
     ></TextField>

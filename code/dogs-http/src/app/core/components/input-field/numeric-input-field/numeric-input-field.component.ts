@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { EventData, TextField } from '@nativescript/core';
 
 @Component({
 	moduleId: module.id,
@@ -14,7 +15,17 @@ export class NumericInputFieldComponent {
 	
 	@Output() textChange = new EventEmitter<number>();
 
+    private textField: TextField;
+
+	onFieldLoaded(args: EventData) {
+        this.textField = args.object as TextField;
+    }
+
 	onFieldTextChange(evt: any) {
         this.textChange.emit(evt.object.text);
     }
+
+	onDismiss(): void {
+		this.textField.dismissSoftInput();
+	}
 }
