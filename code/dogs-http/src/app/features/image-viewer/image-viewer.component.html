@@ -2,13 +2,18 @@
     <NavigationButton android.systemIcon="ic_menu_back" (tap)="goBack()"></NavigationButton>
     <ActionItem icon="font://&#xf567;" class="fas" ios.position="right" ></ActionItem>
 </ActionBar>
-<StackLayout row="0" class="main-container">
+<StackLayout row="0" class="main-container" (tap)="onDismissInputFieldKeyboard()">
     <Label 
+        class="screen-description "
         textWrap="true" 
         text="This screen is intended to find out through images how http status codes are represented in canine language."
     ></Label>
-    <Label class="input-field-description" text="HTTP Status Code"></Label>
+    <Label 
+        class="input-field-description" 
+        text="HTTP Status Code"
+    ></Label>
     <numeric-input-field 
+        #numericInputField
         hint="Enter a valid status code"
         maxLength="3"
         [error]="error"

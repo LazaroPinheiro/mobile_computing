@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import MyHttpStatusCode from '@app/helpers/enumerations/MyHttpStatusCode';
 import { RouterExtensions } from '@nativescript/angular';
+import { NumericInputFieldComponent } from '../../core/components/input-field/numeric-input-field/numeric-input-field.component';
 
 @Component({
 	moduleId: module.id,
@@ -10,26 +11,34 @@ import { RouterExtensions } from '@nativescript/angular';
 })
 
 export class ImageViewerComponent {
+	@ViewChild('numericInputField')
+	private numericInputField: NumericInputFieldComponent;
+	
 	statusCode: number;
 	enteredStatusCode: number;
 	error: string = " ";
 
 	constructor(private _routerExtensions: RouterExtensions) { }
 
-	public goBack(): void {
+	goBack(): void {
 		this._routerExtensions.back();
 	}
 
-	public newStatusCodeEntered(statusCode: number): void {
+	newStatusCodeEntered(statusCode: number): void {
 		if(this.error !== " ") this.error = " ";
 		this.enteredStatusCode = statusCode;
 	}
 
-	public fetchStatusCodeImage(): void {
+	fetchStatusCodeImage(): void {
 		if(!(this.enteredStatusCode in MyHttpStatusCode)) {
 			this.error = "Invalid HTTP status code entered.";
 		} else {
+			this.onDismissInputFieldKeyboard();
 			this.statusCode = this.enteredStatusCode;
 		}
+	}
+
+	onDismissInputFieldKeyboard(): void {
+		this.numericInputField.onFieldBlur();
 	}
 }

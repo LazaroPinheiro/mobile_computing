@@ -2,7 +2,17 @@
     margin: 3% 10%;
 }
 
+.screen-description {
+    font-size: 16;
+    text-align: center;
+    margin-bottom: 3%
+}
+
 .input-field-description {
     font-size: 15;
     font-weight: bold;
+}
+
+Button {
+    margin: 2% 30%;
 }

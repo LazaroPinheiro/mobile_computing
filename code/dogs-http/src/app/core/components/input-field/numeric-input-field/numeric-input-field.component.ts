@@ -25,7 +25,7 @@ export class NumericInputFieldComponent {
         this.textChange.emit(evt.object.text);
     }
 
-	onDismiss(): void {
+	onFieldBlur(): void {
 		this.textField.dismissSoftInput();
 	}
 }
