@@ -33,7 +33,6 @@ export class ImageViewerComponent {
 		if(!(this.enteredStatusCode in MyHttpStatusCode)) {
 			this.error = "Invalid HTTP status code entered.";
 		} else {
-			this.onDismissInputFieldKeyboard();
 			this.statusCode = this.enteredStatusCode;
 		}
 	}
