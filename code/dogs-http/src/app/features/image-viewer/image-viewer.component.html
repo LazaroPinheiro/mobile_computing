@@ -25,5 +25,5 @@
         (tap)="fetchStatusCodeImage()" 
         class="-primary"
     ></Button>
-    <Image *ngIf="statusCode" src="https://http.dog/{{statusCode}}.jpg"></Image>
+    <Image *ngIf="statusCode" src="{{apiUrl}}/{{statusCode}}.jpg"></Image>
 </StackLayout>
