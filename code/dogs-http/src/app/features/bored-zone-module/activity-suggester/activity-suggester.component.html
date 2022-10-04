@@ -25,6 +25,6 @@
                 <Label col="1" textWrap="true" [text]="activity.accessibility" class="item-value"></Label>
             </GridLayout>
         </GridLayout>
-        <Button *ngIf="activity.link != null" row="2" text="More ..." class="-primary"></Button>
+        <Button row="2" *ngIf="activity.link != null" text="More ..." (tap)="goToActivityLink()" class="-primary"></Button>
     </GridLayout>
 </FlexboxLayout>

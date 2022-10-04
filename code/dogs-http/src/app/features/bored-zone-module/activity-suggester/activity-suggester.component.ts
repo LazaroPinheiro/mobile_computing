@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Activity } from '@app/core/models/activity';
 import { RouterExtensions } from '@nativescript/angular';
+import { Utils } from '@nativescript/core';
 
 @Component({
 	moduleId: module.id,
@@ -26,5 +27,9 @@ export class ActivitySuggesterComponent {
 
 	goBack(): void {
 		this._routerExtensions.back();
+	}
+
+	goToActivityLink(): void {
+		Utils.openUrl(this.activity.link);
 	}
 }
