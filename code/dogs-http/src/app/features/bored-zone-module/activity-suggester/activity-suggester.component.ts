@@ -11,6 +11,7 @@ import { Utils } from '@nativescript/core';
 })
 
 export class ActivitySuggesterComponent {
+	isLoading: boolean = false;
 	activity: Activity = {
 		"name": "Learn Express.js",
 		"type": {
