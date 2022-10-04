@@ -3,30 +3,32 @@
 </ActionBar>
 <GridLayout>
     <FlexboxLayout class="main-container">
-        <GridLayout rows="auto, *, auto">
+        <Label textWrap="true" text="Are you bored? Try to find an activity that will make you happy."></Label>
+        <Button [text]="activity == null ? 'Try' : 'Try again'" class="-primary"></Button>
+        <GridLayout rows="auto, auto, auto" class="suggestion-container">
             <FlexboxLayout row="0" class="icon-container">
                 <Image src="~/assets/images/activity_icons/{{ activity.type.tag }}.png"></Image>
                 <Label [text]="activity.type.name" class="activity-type"></Label>
             </FlexboxLayout>
             <GridLayout row="1" rows="auto, auto, auto, auto">
-                <GridLayout row="0" columns="auto, *" class="item-container">
-                    <Label col="0" text="Name:" class="item-title"></Label>
-                    <Label col="1" textWrap="true" [text]="activity.name" class="item-value"></Label>
+                <GridLayout row="0" columns="auto, *" class="topic-container">
+                    <Label col="0" text="Name:" class="topic-title"></Label>
+                    <Label col="1" textWrap="true" [text]="activity.name" class="topic-value"></Label>
                 </GridLayout>
-                <GridLayout row="1" columns="auto, *" class="item-container">
-                    <Label col="0" text="Participants:" class="item-title"></Label>
-                    <Label col="1" textWrap="true" [text]="activity.participants" class="item-value"></Label>
+                <GridLayout row="1" columns="auto, *" class="topic-container">
+                    <Label col="0" text="Participants:" class="topic-title"></Label>
+                    <Label col="1" textWrap="true" [text]="activity.participants" class="topic-value"></Label>
                 </GridLayout>
-                <GridLayout row="2" columns="auto, *" class="item-container">
-                    <Label col="0" text="Price:" class="item-title"></Label>
-                    <Label col="1" textWrap="true" [text]="activity.price" class="item-value"></Label>
+                <GridLayout row="2" columns="auto, *" class="topic-container">
+                    <Label col="0" text="Price:" class="topic-title"></Label>
+                    <Label col="1" textWrap="true" [text]="activity.price" class="topic-value"></Label>
                 </GridLayout>
-                <GridLayout row="3" columns="auto, *" class="item-container">
-                    <Label col="0" text="Accessibility:" class="item-title"></Label>
-                    <Label col="1" textWrap="true" [text]="activity.accessibility" class="item-value"></Label>
+                <GridLayout row="3" columns="auto, *" class="topic-container">
+                    <Label col="0" text="Accessibility:" class="topic-title"></Label>
+                    <Label col="1" textWrap="true" [text]="activity.accessibility" class="topic-value"></Label>
                 </GridLayout>
             </GridLayout>
-            <Button row="2" *ngIf="activity.link != null" text="More ..." (tap)="goToActivityLink()" class="-primary"></Button>
+            <Button row="2" *ngIf="activity.link != null" text="Know more about" (tap)="goToActivityLink()" class=""></Button>
         </GridLayout>
     </FlexboxLayout>
     

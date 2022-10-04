@@ -13,7 +13,7 @@ import { Utils } from '@nativescript/core';
 export class ActivitySuggesterComponent {
 	isLoading: boolean = false;
 	activity: Activity = {
-		"name": "Learn Express.js",
+		"name": "Go see a movie in theaters with a few friends",
 		"type": {
 			"tag": "education",
 			"name": "Education",
