@@ -4,8 +4,8 @@
 <GridLayout>
     <FlexboxLayout class="main-container">
         <Label textWrap="true" text="Are you bored? Try to find an activity that will make you happy."></Label>
-        <Button [text]="activity == null ? 'Try' : 'Try again'" class="-primary"></Button>
-        <GridLayout rows="auto, auto, auto" class="suggestion-container">
+        
+        <GridLayout *ngIf="activity" rows="auto, auto, auto" class="suggestion-container">
             <FlexboxLayout row="0" class="icon-container">
                 <Image src="~/assets/images/activity_icons/{{ activity.type.tag }}.png"></Image>
                 <Label [text]="activity.type.name" class="activity-type"></Label>
@@ -30,6 +30,8 @@
             </GridLayout>
             <Button row="2" *ngIf="activity.link != null" text="Know more about" (tap)="goToActivityLink()" class=""></Button>
         </GridLayout>
+
+        <Button [text]="activity == null ? 'Try' : 'Try again'" class="-primary"></Button>
     </FlexboxLayout>
     
     <loading-screen *ngIf="isLoading"></loading-screen>

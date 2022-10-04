@@ -1,7 +1,7 @@
 .main-container {
     flex-direction: column;
     margin: 3% 10%;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .suggestion-container {
@@ -28,7 +28,7 @@ Image {
 }
 
 .topic-container {
-    padding: 2% 0%;
+    padding: 3% 0%;
 }
 
 .topic-title {
