@@ -16,6 +16,14 @@ export const AppRoutes: Routes = [
     
     {
         path: 'image-viewer',
-        component: ImageViewerComponent
+        component: ImageViewerComponent,
+        children: [
+        ]
+    },
+
+
+    {
+        path: 'bored-zone',
+        loadChildren: () => import('@app/features/bored-zone-module/bored-zone.module').then(m => m.BoredZoneModule)
     }
 ]
