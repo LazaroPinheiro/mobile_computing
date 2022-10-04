@@ -1,3 +1,36 @@
-.activity-suggester {
+.main-container {
+    flex-direction: column;
+    margin: 3% 10%;
+}
 
+.icon-container {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+Image {
+    width: 30%;
+}
+
+.activity-type {
+    font-size: 18;
+    font-weight: bold;
+    padding: 20%;
+}
+
+.item-container {
+    padding: 5% 0%;
+}
+
+.item-title {
+    vertical-align: center;
+    font-size: 15;
+    font-weight: 500;
+}
+
+.item-value {
+    vertical-align: center;
+    padding-left: 3%;
+    font-size: 15;
 }

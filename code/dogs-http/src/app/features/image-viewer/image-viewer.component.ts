@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { NumericInputFieldComponent } from '@app/core/components/input-field/numeric-input-field/numeric-input-field.component';
 import MyHttpStatusCode from '@app/helpers/enumerations/MyHttpStatusCode';
-import { environment } from "@env/environment";
+import { environment } from '@env/environment';
 import { RouterExtensions } from '@nativescript/angular';
 
 @Component({
