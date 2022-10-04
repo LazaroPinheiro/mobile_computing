@@ -4,6 +4,16 @@
     justify-content: space-between;
 }
 
+.prompt-message {
+    font-size: 20;
+    text-align: center;
+}
+
+.prompt-description-message {
+    font-size: 14;
+    text-align: center;
+}
+
 .suggestion-container {
     border-width: 1;
     border-radius: 10;
@@ -13,8 +23,6 @@
 
 .icon-container {
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
 }
 
 Image {
@@ -25,6 +33,7 @@ Image {
     font-size: 18;
     font-weight: bold;
     padding: 20%;
+    text-align: center;
 }
 
 .topic-container {
@@ -39,6 +48,6 @@ Image {
 
 .topic-value {
     vertical-align: top;
-    padding-left: 3%;
     font-size: 16;
+    padding-left: 3%;
 }

@@ -3,12 +3,15 @@
 </ActionBar>
 <GridLayout>
     <FlexboxLayout class="main-container">
-        <Label textWrap="true" text="Are you bored? Try to find an activity that will make you happy."></Label>
+        <StackLayout>
+            <Label textWrap="true" text="Are you bored?" class="prompt-message"></Label>
+            <Label textWrap="true" text="Try to find an activity that will make you happy." class="prompt-description-message"></Label>
+        </StackLayout>
         
         <GridLayout *ngIf="activity" rows="auto, auto, auto" class="suggestion-container">
             <FlexboxLayout row="0" class="icon-container">
                 <Image src="~/assets/images/activity_icons/{{ activity.type.tag }}.png"></Image>
-                <Label [text]="activity.type.name" class="activity-type"></Label>
+                <Label textWrap="true" [text]="activity.type.name" class="activity-type"></Label>
             </FlexboxLayout>
             <GridLayout row="1" rows="auto, auto, auto, auto">
                 <GridLayout row="0" columns="auto, *" class="topic-container">
@@ -31,7 +34,7 @@
             <Button row="2" *ngIf="activity.link != null" text="Know more about" (tap)="goToActivityLink()" class=""></Button>
         </GridLayout>
 
-        <Button [text]="activity == null ? 'Try' : 'Try again'" class="-primary"></Button>
+        <Button [text]="activity == null ? 'Try' : 'Try again'" (tap)="fetchActivity()" class="-primary"></Button>
     </FlexboxLayout>
     
     <loading-screen *ngIf="isLoading"></loading-screen>

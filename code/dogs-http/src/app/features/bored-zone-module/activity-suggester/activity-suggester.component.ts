@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Activity } from '@app/core/models/activity';
+import { BoredApiService } from '@app/core/services/bored-api.service';
 import { RouterExtensions } from '@nativescript/angular';
 import { Utils } from '@nativescript/core';
 
@@ -12,19 +13,9 @@ import { Utils } from '@nativescript/core';
 
 export class ActivitySuggesterComponent {
 	isLoading: boolean = false;
-	activity: Activity = {
-		"name": "Go see a movie in theaters with a few friends",
-		"type": {
-			"tag": "education",
-			"name": "Education",
-		},
-		"accessibility": 0.25,
-		"participants": 1,
-		"price": 0.1,
-		"link": "https://expressjs.com/"
-	} 
+	activity: Activity;
 
-	constructor(private _routerExtensions: RouterExtensions) { }
+	constructor(private _routerExtensions: RouterExtensions, private _boredApiService: BoredApiService) { }
 
 	goBack(): void {
 		this._routerExtensions.back();
@@ -32,5 +23,16 @@ export class ActivitySuggesterComponent {
 
 	goToActivityLink(): void {
 		Utils.openUrl(this.activity.link);
+	}
+
+	fetchActivity(): void {
+		this.isLoading = true;
+		this._boredApiService.fetchActivity()
+		.then((activity: Activity) => {
+			this.activity = activity;
+		})
+		.finally(() => {
+			this.isLoading = false;
+		})
 	}
 }

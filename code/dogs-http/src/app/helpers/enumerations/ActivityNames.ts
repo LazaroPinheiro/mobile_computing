@@ -5,5 +5,7 @@ export enum ActivityNames {
     DIY = "DIY",
     EDUCATION = "Education",
     MUSIC = "Music",
+    RECREATIONAL = "Recreational",
+    RELAXATION = "Relaxation",
     SOCIAL = "Social"
 }
