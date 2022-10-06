@@ -7,6 +7,10 @@
     align-items: center;
 }
 
+:host-context(.ns-dark) .main-container {
+    background-color: rgb(48, 48, 48);
+}
+
 Image {
     width: 50%;
 }
@@ -15,4 +19,8 @@ Label {
     font-size: 20;
     font-weight: bold;
     margin-top: 5%;
+}
+
+:host-context(.ns-dark) Label {
+    color: white;
 }
