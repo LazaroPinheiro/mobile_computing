@@ -4,6 +4,9 @@ import MyHttpStatusCode from '@app/helpers/enumerations/MyHttpStatusCode';
 import { environment } from '@env/environment';
 import { RouterExtensions } from '@nativescript/angular';
 
+/**
+ * Image viewer component.
+ */
 @Component({
 	moduleId: module.id,
 	selector: 'image-viewer',
@@ -20,17 +23,32 @@ export class ImageViewerComponent {
 	enteredStatusCode: number;
 	error: string = " ";
 
+	/**
+	 * Image viewer component constructor.
+	 * @param {RouterExtensions} _routerExtensions router extensions that allows navigation.
+	 */
 	constructor(private _routerExtensions: RouterExtensions) { }
 
+	/**
+	 * Navigates to previous route.
+	 */
 	goBack(): void {
 		this._routerExtensions.back();
 	}
 
+	/**
+	 * Notified when the text value of the input field changes.
+	 * When a new digit of a status code is entered or removed.
+	 * @param {number} statusCode status code entered.
+	 */
 	newStatusCodeEntered(statusCode: number): void {
 		if(this.error !== " ") this.error = " ";
 		this.enteredStatusCode = statusCode;
 	}
 
+	/**
+	 * Gets the image corresponding to the entered status code.
+	 */
 	fetchStatusCodeImage(): void {
 		if(!(this.enteredStatusCode in MyHttpStatusCode)) {
 			this.error = "Invalid HTTP status code entered.";
@@ -39,6 +57,9 @@ export class ImageViewerComponent {
 		}
 	}
 
+	/**
+	 * Performed on input field blur.
+	 */
 	onDismissInputFieldKeyboard(): void {
 		this.numericInputField.onFieldBlur();
 	}

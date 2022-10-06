@@ -1,3 +1,6 @@
+/**
+ * Enumeration of activity names.
+ */
 export enum ActivityNames {
     BUSYWORK = "Busy Work",
     CHARITY = "Charity",

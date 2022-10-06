@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { Page } from '@nativescript/core';
 
+/**
+ * Landing component
+ */
 @Component({
 	moduleId: module.id,
 	selector: 'landing',
@@ -9,6 +12,11 @@ import { Page } from '@nativescript/core';
 })
 
 export class LandingComponent {
+
+	/**
+	 * Landing component constructor.
+	 * @param {Page} _page current page for hide the action bar. 
+	 */
 	constructor(private _page: Page) {
 		this._page.actionBarHidden = true;
 	}

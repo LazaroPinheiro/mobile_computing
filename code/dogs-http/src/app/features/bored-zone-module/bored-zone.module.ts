@@ -6,7 +6,7 @@ import { BoredZoneRoutingModule } from "@app/features/bored-zone-module/bored-zo
 import { NativeScriptCommonModule } from "@nativescript/angular";
 
 /**
- * Landing module.
+ * Bored zone module.
  */
 @NgModule({
     bootstrap: [ActivitySuggesterComponent],

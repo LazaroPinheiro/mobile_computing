@@ -3,7 +3,7 @@ import { BoredZoneRoutes } from '@app/features/bored-zone-module/bored-zone.rout
 import { NativeScriptRouterModule } from '@nativescript/angular';
 
 /**
- * Landing routing module.
+ * Bored zone routing module.
  */
 @NgModule({
   imports: [NativeScriptRouterModule.forChild(BoredZoneRoutes)],
