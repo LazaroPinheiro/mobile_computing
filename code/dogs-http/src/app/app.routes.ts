@@ -2,6 +2,10 @@ import { Routes } from "@angular/router";
 import { ImageViewerComponent } from "@app/features/image-viewer/image-viewer.component";
 import { LandingComponent } from "@app/features/landing/landing.component";
 
+/**
+ * App routes.
+ * Description: Application main routes.
+ */
 export const AppRoutes: Routes = [
     { 
         path: '', 

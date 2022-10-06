@@ -7,7 +7,10 @@ import { ImageViewerComponent } from '@app/features/image-viewer/image-viewer.co
 import { LandingComponent } from '@app/features/landing/landing.component'
 import { NativeScriptHttpClientModule, NativeScriptModule } from '@nativescript/angular'
 
-
+/**
+ * App module.
+ * Description: Application main module.
+ */
 @NgModule({
   bootstrap: [AppComponent],
   imports: [NativeScriptModule, AppRoutingModule, InputFieldModule, 

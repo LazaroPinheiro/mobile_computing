@@ -4,8 +4,7 @@ import { NativeScriptCommonModule } from "@nativescript/angular";
 import { NoInternetScreenComponent } from "./no-internet-screen.component";
 
 /**
- * In-application loading module.
- * This module allows importing the loading component within the application.
+ * No internet screen module.
  */
 @NgModule({
     imports: [NativeScriptCommonModule, CommonModule],

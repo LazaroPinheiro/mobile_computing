@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 
+/**
+ * No internet screen component.
+ */
 @Component({
 	moduleId: module.id,
 	selector: 'no-internet-screen',
