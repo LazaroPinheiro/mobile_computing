@@ -1,9 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Activity } from '@app/core/models/activity';
+import { CustomError } from '@app/core/models/custom-error';
 import { ActivityNames } from '@app/helpers/enumerations/ActivityNames';
-import { lastValueFrom, map } from 'rxjs';
-import { environment } from '../../../environments/environment';
-import { Activity } from '../models/activity';
+import { ErrorCode } from '@app/helpers/enumerations/ErrorCode';
+import { environment } from '@env/environment';
+import { catchError, lastValueFrom, map, throwError, timeout, TimeoutError } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class BoredApiService {
@@ -21,6 +23,7 @@ export class BoredApiService {
                 link: string
             } >(`${environment.theBored.apiUrl}/activity`)
             .pipe(
+                timeout(1000),    
                 map(result => {
                     return <Activity> {
                         name: result.activity,
@@ -33,6 +36,15 @@ export class BoredApiService {
                         accessibility: result.accessibility,
                         link: (result.link == '' ? null : result.link)
                     }
+                }),
+                catchError((error) => {
+                    var errorCode: ErrorCode = ErrorCode.UNEXPECTED_BEHAVIOUR;
+                    var errorMessage: string = "Something went wrong while trying to make a request to bored api service.";
+                    if(error instanceof TimeoutError) {
+                        errorCode = ErrorCode.TIMEOUT;
+                        errorMessage = "The request has timed out."
+                    }
+                    return throwError(() => new CustomError(errorCode, errorMessage));
                 })
             )
         );
