@@ -7,12 +7,25 @@ import { ErrorCode } from '@app/helpers/enumerations/ErrorCode';
 import { environment } from '@env/environment';
 import { catchError, lastValueFrom, map, throwError, timeout, TimeoutError } from 'rxjs';
 
+/**
+ * Bored API service.
+ * Description: Service that requests the Bored API.
+ */
 @Injectable({ providedIn: 'root' })
 export class BoredApiService {
     
+    /**
+     * Bored API service constructor.
+     * @param {HttpClient} _httpClient Service that performs HTTP requests.
+     */
     constructor(private _httpClient: HttpClient) {}   
 
+    /**
+     * Fetchs an random activity.
+     * @returns {Activity} actvity.
+     */
     public fetchActivity(): Promise<Activity> {
+        // Turns the Observable into a Promise.
         return lastValueFrom(
             this._httpClient.get< {
                 activity: string, 
@@ -23,7 +36,9 @@ export class BoredApiService {
                 link: string
             } >(`${environment.theBored.apiUrl}/activity`)
             .pipe(
-                timeout(1000),    
+                 // Defines a deadline for request's lifetime   
+                timeout(1000),  
+                // Maps the input object data to the intended output object data.
                 map(result => {
                     return <Activity> {
                         name: result.activity,
@@ -37,6 +52,7 @@ export class BoredApiService {
                         link: (result.link == '' ? null : result.link)
                     }
                 }),
+                // Catches errors that happen during the request.
                 catchError((error) => {
                     var errorCode: ErrorCode = ErrorCode.UNEXPECTED_BEHAVIOUR;
                     var errorMessage: string = "Something went wrong while trying to make a request to bored api service.";

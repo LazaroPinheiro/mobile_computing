@@ -1,3 +1,7 @@
+/**
+ * Activity specification.
+ */
+
 export interface Activity {
     name: string;
     type: {

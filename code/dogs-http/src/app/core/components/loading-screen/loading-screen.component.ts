@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 
+/**
+ * Loading screen component.
+ */
+
 @Component({
 	moduleId: module.id,
 	selector: 'loading-screen',

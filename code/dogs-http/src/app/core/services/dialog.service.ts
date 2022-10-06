@@ -2,7 +2,8 @@ import { Injectable } from "@angular/core";
 import { Dialogs } from "@nativescript/core";
 
 /**
- * Service that is responsible for displaying the dialogs.
+ * Dialog service.
+ * Description: Service that is responsible for displaying the dialogs.
  */
 @Injectable({ providedIn: 'root' })
 export class DialogService {

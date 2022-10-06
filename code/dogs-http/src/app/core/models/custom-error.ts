@@ -1,4 +1,4 @@
-import { ErrorCode } from "../../helpers/enumerations/ErrorCode";
+import { ErrorCode } from "@app/helpers/enumerations/ErrorCode";
 
 /**
  * Custom Error class. 

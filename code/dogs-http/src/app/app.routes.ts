@@ -5,7 +5,7 @@ import { LandingComponent } from "@app/features/landing/landing.component";
 export const AppRoutes: Routes = [
     { 
         path: '', 
-        redirectTo: 'bored-zone', 
+        redirectTo: 'landing', 
         pathMatch: 'full' 
     },
 
