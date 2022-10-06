@@ -21,6 +21,10 @@
     padding: 20%;
 }
 
+:host-context(.ns-dark) .suggestion-container {
+    border-color: whitesmoke;
+}
+
 .icon-container {
     flex-direction: column;
 }
