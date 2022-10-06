@@ -1,3 +1,4 @@
 <GridLayout>
   <page-router-outlet></page-router-outlet>
+  <no-internet-screen *ngIf="!hasNetworkConnection"></no-internet-screen>
 </GridLayout>
