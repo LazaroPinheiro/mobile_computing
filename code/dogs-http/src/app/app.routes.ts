@@ -21,8 +21,6 @@ export const AppRoutes: Routes = [
     {
         path: 'image-viewer',
         component: ImageViewerComponent,
-        children: [
-        ]
     },
 
 

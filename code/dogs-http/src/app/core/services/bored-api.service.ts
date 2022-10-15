@@ -13,31 +13,31 @@ import { catchError, lastValueFrom, map, throwError, timeout, TimeoutError } fro
  */
 @Injectable({ providedIn: 'root' })
 export class BoredApiService {
-    
+
     /**
      * Bored API service constructor.
      * @param {HttpClient} _httpClient Service that performs HTTP requests.
      */
-    constructor(private _httpClient: HttpClient) {}   
+    constructor(private _httpClient: HttpClient) {}
 
     /**
-     * Fetchs an random activity.
-     * @returns {Activity} actvity.
+     * Fetches a random activity.
+     * @returns {Activity} activity.
      */
     public fetchActivity(): Promise<Activity> {
         // Turns the Observable into a Promise.
         return lastValueFrom(
             this._httpClient.get< {
-                activity: string, 
-                accessibility: number, 
-                type: string, 
+                activity: string,
+                accessibility: number,
+                type: string,
                 participants: number,
-                price: number, 
+                price: number,
                 link: string
             } >(`${environment.theBored.apiUrl}/activity`)
             .pipe(
-                 // Defines a deadline for request's lifetime   
-                timeout(1000),  
+                 // Defines a deadline for request's lifetime
+                timeout(1000),
                 // Maps the input object data to the intended output object data.
                 map(result => {
                     return <Activity> {
@@ -54,9 +54,9 @@ export class BoredApiService {
                 }),
                 // Catches errors that happen during the request.
                 catchError((error) => {
-                    var errorCode: ErrorCode = ErrorCode.UNEXPECTED_BEHAVIOUR;
-                    var errorMessage: string = "Something went wrong while trying to make a request to bored api service.";
-                    if(error instanceof TimeoutError) {
+                  let errorCode: ErrorCode = ErrorCode.UNEXPECTED_BEHAVIOUR;
+                  let errorMessage: string = "Something went wrong while trying to make a request to bored api service.";
+                  if(error instanceof TimeoutError) {
                         errorCode = ErrorCode.TIMEOUT;
                         errorMessage = "The request has timed out."
                     }
